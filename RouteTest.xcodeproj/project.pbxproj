@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,9 @@
 		1D2F70DB259D0A6A00D04185 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F70DA259D0A6A00D04185 /* ContentView.swift */; };
 		1D2F70DD259D0A6B00D04185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D2F70DC259D0A6B00D04185 /* Assets.xcassets */; };
 		1D2F70E0259D0A6B00D04185 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D2F70DF259D0A6B00D04185 /* Preview Assets.xcassets */; };
+		1D2F70ED259D0AF600D04185 /* SwiftDuxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 1D2F70EC259D0AF600D04185 /* SwiftDuxNavigation */; };
+		1D2F70F2259D0C6B00D04185 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F70F1259D0C6B00D04185 /* AppState.swift */; };
+		1D2F70F9259D0C8F00D04185 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F70F8259D0C8F00D04185 /* AppReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,8 @@
 		1D2F70DC259D0A6B00D04185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D2F70DF259D0A6B00D04185 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1D2F70E1259D0A6B00D04185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D2F70F1259D0C6B00D04185 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1D2F70F8259D0C8F00D04185 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2F70ED259D0AF600D04185 /* SwiftDuxNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +58,7 @@
 		1D2F70D7259D0A6A00D04185 /* RouteTest */ = {
 			isa = PBXGroup;
 			children = (
+				1D2F70F0259D0C5E00D04185 /* State */,
 				1D2F70D8259D0A6A00D04185 /* RouteTestApp.swift */,
 				1D2F70DA259D0A6A00D04185 /* ContentView.swift */,
 				1D2F70DC259D0A6B00D04185 /* Assets.xcassets */,
@@ -67,6 +74,15 @@
 				1D2F70DF259D0A6B00D04185 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1D2F70F0259D0C5E00D04185 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1D2F70F1259D0C6B00D04185 /* AppState.swift */,
+				1D2F70F8259D0C8F00D04185 /* AppReducer.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +101,9 @@
 			dependencies = (
 			);
 			name = RouteTest;
+			packageProductDependencies = (
+				1D2F70EC259D0AF600D04185 /* SwiftDuxNavigation */,
+			);
 			productName = RouteTest;
 			productReference = 1D2F70D5259D0A6A00D04185 /* RouteTest.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 1D2F70CC259D0A6A00D04185;
+			packageReferences = (
+				1D2F70EB259D0AF600D04185 /* XCRemoteSwiftPackageReference "SwiftDuxNavigation" */,
+			);
 			productRefGroup = 1D2F70D6259D0A6A00D04185 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2F70F2259D0C6B00D04185 /* AppState.swift in Sources */,
 				1D2F70DB259D0A6A00D04185 /* ContentView.swift in Sources */,
 				1D2F70D9259D0A6A00D04185 /* RouteTestApp.swift in Sources */,
+				1D2F70F9259D0C8F00D04185 /* AppReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +352,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D2F70EB259D0AF600D04185 /* XCRemoteSwiftPackageReference "SwiftDuxNavigation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/StevenLambion/SwiftDuxNavigation";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D2F70EC259D0AF600D04185 /* SwiftDuxNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D2F70EB259D0AF600D04185 /* XCRemoteSwiftPackageReference "SwiftDuxNavigation" */;
+			productName = SwiftDuxNavigation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1D2F70CD259D0A6A00D04185 /* Project object */;
 }

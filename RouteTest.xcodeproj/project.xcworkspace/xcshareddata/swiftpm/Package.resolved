@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftDux",
+        "repositoryURL": "https://github.com/StevenLambion/SwiftDux.git",
+        "state": {
+          "branch": null,
+          "revision": "3b0693d7c4bd5ee8d1cdcab86fbcbbc75ddd14a2",
+          "version": "2.0.1"
+        }
+      },
+      {
+        "package": "SwiftDuxNavigation",
+        "repositoryURL": "https://github.com/StevenLambion/SwiftDuxNavigation",
+        "state": {
+          "branch": "master",
+          "revision": "70321d17965bfc93c991959513de5114eeb7d8e3",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
