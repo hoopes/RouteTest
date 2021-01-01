@@ -9,58 +9,63 @@ import SwiftUI
 import SwiftDux
 import AppNavigation
 
-struct ContentView: View {
+
+
+struct RootContentView: View {
 
   @Environment(\.actionDispatcher) private var dispatch
   @Environment(\.waypoint) private var waypoint
 
   var body: some View {
-    WaypointView(.name("root")) { wp in
-      Text("Hello, world!")
-        .padding()
+    NavigationView {
+      VStack {
+        Text("Hello, world!")
+          .padding()
 
-      Button(action: {
-        dispatch(NavigationAction.navigate(to: URL(string: "/one")!))
-      }) { Text("Button to one") }
+        RouteLink(path: "/one") { Text("ONE") }
+        RouteLink(path: "/two") { Text("TWO") }
 
-      Button(action: {
-        dispatch(NavigationAction.navigate(to: URL(string: "/two")!))
-      }) { Text("Button to two") }
+        // Error: Route completion timed out for the 'main' route.
+        RouteLink(path: "/settings") { Text("Settings 1") }
 
-      RouteLink(path: "/one") { Text("ONE") }
-      RouteLink(path: "/two") { Text("TWO") }
+        // Error: Route completion timed out for the 'settings' route.
+        RouteLink(path: "/", routeName: "settings") { Text("Settings 2") }
+      }
+
+      // These will create the Waypoint for you and will push their views onto the NavigationView.
+      .stackItem(.name("one")) { OneView() }
+      .stackItem(.name("two")) { TwoView() }
+    }
+    .navigationViewStyle(StackNavigationViewStyle()) // act correctly on an ipad for this example
+  }
+}
+
+struct RootSettingsView: View {
+  var body: some View {
+    Route(name: "settings") {
+      Text("Settings!")
     }
   }
 }
 
+
 struct OneView: View {
 
-  @Environment(\.actionDispatcher) private var dispatch
-  @Environment(\.waypoint) private var waypoint
-
   var body: some View {
-    WaypointView(.name("one")) { wp in
-      Text("One!")
-        .padding()
+    Text("One!")
+      .padding()
 
-      RouteLink(path: "/one") { Text("ONE") }
-      RouteLink(path: "/two") { Text("TWO") }
-    }
+    RouteLink(path: "/two") { Text("GO TO TWO") }
   }
 }
 
 struct TwoView: View {
 
-  @Environment(\.actionDispatcher) private var dispatch
-  @Environment(\.waypoint) private var waypoint
-
   var body: some View {
-    WaypointView(.name("two")) { wp in
-      Text("Two!")
-        .padding()
+    Text("Two!")
+      .padding()
 
-      RouteLink(path: "/one") { Text("ONE") }
-      RouteLink(path: "/two") { Text("TWO") }
-    }
+    RouteLink(path: "/one") { Text("GO TO ONE") }
   }
 }
+

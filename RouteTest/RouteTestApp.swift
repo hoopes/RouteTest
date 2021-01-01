@@ -19,10 +19,12 @@ func configureStore() -> Store<AppState> {
 
 @main
 struct RouteTestApp: App {
-    var body: some Scene {
-        WindowGroup {
-          ContentView()
-            .provideStore(configureStore())
-        }
+  var body: some Scene {
+    WindowGroup {
+      Route(name: "main") {
+        RootContentView()
+      }
+      .provideStore(configureStore())
     }
+  }
 }
